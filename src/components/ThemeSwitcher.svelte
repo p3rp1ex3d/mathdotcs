@@ -10,8 +10,7 @@
 		themes = theme.getThemes();
 
 		if (typeof window !== 'undefined') {
-			currentTheme = localStorage.getItem('math-cs-theme') || 'terminal';
-			document.documentElement.setAttribute('data-theme', currentTheme);
+			document.documentElement.setAttribute('data-theme', 'terminal');
 		}
 	});
 
@@ -21,8 +20,7 @@
 
 	function updateTheme() {
 		theme.setTheme(currentTheme);
-		document.documentElement.setAttribute('data-theme', currentTheme);
-		localStorage.setItem('math-cs-theme', currentTheme);
+		document.documentElement.setAttribute('data-theme', 'terminal');
 	}
 
 	function handleThemeChange(themeName) {
@@ -171,39 +169,5 @@
 
 	:global([data-theme='terminal']) .theme-option.active {
 		background-color: rgba(96, 165, 250, 0.2);
-	}
-
-	:global([data-theme='illustration']) .theme-button {
-		border-color: #a855f7;
-		color: #a855f7;
-	}
-
-	:global([data-theme='illustration']) .theme-button:hover {
-		background-color: rgba(168, 85, 247, 0.1);
-	}
-
-	:global([data-theme='illustration']) .theme-option:hover {
-		background-color: rgba(168, 85, 247, 0.08);
-	}
-
-	:global([data-theme='illustration']) .theme-option.active {
-		background-color: rgba(168, 85, 247, 0.15);
-	}
-
-	:global([data-theme='minimal']) .theme-button {
-		border-color: #1f2937;
-		color: #1f2937;
-	}
-
-	:global([data-theme='minimal']) .theme-button:hover {
-		background-color: #f3f4f6;
-	}
-
-	:global([data-theme='minimal']) .theme-option:hover {
-		background-color: #f9fafb;
-	}
-
-	:global([data-theme='minimal']) .theme-option.active {
-		background-color: #f3f4f6;
 	}
 </style>

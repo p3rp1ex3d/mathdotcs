@@ -6,16 +6,6 @@ const THEMES = {
 		name: 'Terminal Dark',
 		value: 'terminal',
 		description: 'Dark terminal aesthetic'
-	},
-	illustration: {
-		name: 'Illustration Light',
-		value: 'illustration',
-		description: 'Light, playful, illustration style'
-	},
-	minimal: {
-		name: 'Minimal Clean',
-		value: 'minimal',
-		description: 'Minimalist, clean white space'
 	}
 };
 
@@ -37,8 +27,7 @@ function createThemeStore() {
 			if (THEMES[theme]) {
 				set(theme);
 				if (typeof window !== 'undefined') {
-					localStorage.setItem(THEME_KEY, theme);
-					document.documentElement.setAttribute('data-theme', theme);
+					document.documentElement.setAttribute('data-theme', 'terminal');
 				}
 			}
 		},

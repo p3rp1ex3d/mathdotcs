@@ -4,8 +4,6 @@
 
 /* Import all theme stylesheets */
 @import '../styles/theme-terminal.css';
-@import '../styles/theme-illustration.css';
-@import '../styles/theme-minimal.css';
 
 * {
 	scroll-behavior: smooth;

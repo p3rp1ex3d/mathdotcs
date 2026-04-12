@@ -7,10 +7,7 @@
 	let { children } = $props();
 
 	onMount(() => {
-		const savedTheme =
-			typeof window !== 'undefined'
-				? localStorage.getItem('math-cs-theme') || 'illustration'
-				: 'terminal';
+		const savedTheme = 'terminal';
 
 		theme.setTheme(savedTheme);
 	});
@@ -43,17 +40,6 @@
 		color: #e5e5ea;
 	}
 
-	:global([data-theme='illustration'] body) {
-		background-color: #f3e8ff;
-		color: #4c1d95;
-		font-family: 'Inter', sans-serif;
-	}
-
-	:global([data-theme='minimal'] body) {
-		background-color: #ffffff;
-		color: #111827;
-		font-family: 'Inter', sans-serif;
-	}
 
 	:global(a) {
 		color: inherit;

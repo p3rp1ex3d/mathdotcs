@@ -18,17 +18,13 @@
 
 	onMount(async () => {
 		try {
-			console.log('📰 Loading latest articles...');
 			const posts = await getLatestPosts(4);
-			console.log(`📰 Received ${posts.length} posts`);
 			articles = posts.map((post, index) => ({
 				...post,
 				id: index + 1,
 				color: colors[index % colors.length]
 			}));
-			console.log('✅ Latest articles loaded:', articles);
 		} catch (err) {
-			console.error('❌ Failed to load articles:', err);
 			error = 'Unable to load articles. Please try again later.';
 			articles = [];
 		} finally {

@@ -151,10 +151,8 @@
 
 			<div class="bg-[#14141f] border border-gray-600 rounded p-4 mt-6 font-mono text-sm text-gray-400 space-y-2">
 				<div class="text-green-400">✓ Puzzle engine</div>
-				<div class="text-green-400">✓ Difficulty levels (Easy, Medium, Hard)</div>
+				<div class="text-green-400">✓ Difficulty levels</div>
 				<div class="text-green-400">✓ Progress tracking</div>
-				<div class="text-yellow-400">⧗ Leaderboard system</div>
-				<div class="text-yellow-400">⧗ User solutions & explanations</div>
 			</div>
 
 			<div class="mt-8 flex flex-col md:flex-row gap-4">

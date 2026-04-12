@@ -14,24 +14,17 @@
 
 	onMount(async () => {
 		try {
-			console.log('📚 Loading all blog articles...');
 			const posts = await getLatestPosts(100);
-			console.log(`📚 Received ${posts.length} posts from GitHub`);
 			
 			articles = posts.map((post, index) => ({
 				...post,
 				id: index + 1,
-				image: post.image || '📄'
 			}));
-			console.log('✅ Articles mapped:', articles);
 			
 			// Extract unique categories from posts
 			const uniqueCategories = new Set(articles.map(a => a.category));
 			categories = ['All', ...Array.from(uniqueCategories).sort()];
-			console.log('📑 Categories found:', categories);
 		} catch (err) {
-			console.error('❌ Failed to load articles:', err);
-			error = 'Unable to load articles. Please check your GitHub configuration.';
 		} finally {
 			loading = false;
 		}
@@ -67,7 +60,7 @@
 			<div class="mb-8">
 				<input
 					type="text"
-					placeholder="🔍 Search articles..."
+					placeholder="Search articles..."
 					bind:value={searchQuery}
 					class="w-full bg-[#1e1e2e] border border-gray-600 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-blue-400 transition"
 				/>

@@ -146,7 +146,6 @@
 				});
 				el.outerHTML = `<span class="katex-render">${rendered}</span>`;
 			} catch (err) {
-				console.error('KaTeX render error:', err);
 			}
 		});
 
@@ -252,12 +251,10 @@
 <div class="bg-[#0a0a0f] text-white pt-20 pb-12">
 	<TerminalDocument title={post.title}>
 		<article>
-		<!-- Article Header -->
 		<header class="mb-12 space-y-6 border-b border-gray-600 pb-8">
 			<div class="space-y-3">
 				<div class="flex items-center gap-3 flex-wrap">
-					<span class="text-2xl">{post.image}</span>
-					<span class="bg-blue-400/10 text-blue-400 px-3 py-1 rounded text-sm font-mono border border-blue-400/30">
+					<span class="bg-blue-400/10 text-blue-400 px-1 py-1 rounded text-sm font-mono border border-blue-400/30">
 						{post.category}
 					</span>
 					<span class="text-gray-500 text-sm">{post.readTime}</span>

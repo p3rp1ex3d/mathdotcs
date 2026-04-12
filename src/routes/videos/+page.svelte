@@ -2,149 +2,202 @@
 	import Navbar from '../../components/Navbar.svelte';
 	import Footer from '../../components/Footer.svelte';
 
+	export let data;
+
 	let selectedDifficulty = 'All';
 	let searchQuery = '';
+	let videos = data.videos ?? [];
+	let activeVideo = null;
 
 	const difficulties = ['All', 'Beginner', 'Intermediate', 'Advanced'];
 
-	const videos = [
-		{
-			id: 1,
-			title: 'A Circle\'s Area Revisualized',
-			channel: 'MathDotCS',
-			difficulty: 'Intermediate',
-			duration: '03:41',
-			date: 'Jan 2, 2026',
-			thumbnail: '🎯',
-			youtubeId: 'myVWQCasgmQ',
-			description: 'A circle is a simple shape, but its area can be surprisingly tricky to understand. In this video, we explore the area of a circle through a visual and a calculus based approach. This method not only makes the concept of area more tangible but also highlights the beauty of mathematical reasoning.'
-		},
-		{
-			id: 2,
-			title: 'Appa, what is Time? - Time before Time',
-			channel: 'MathDotCS',
-			difficulty: 'Beginner',
-			duration: '01:32',
-			date: 'Apr 8, 2026',
-			thumbnail: '⚡',
-			youtubeId: 'X9ibJdOShLI',
-			description: 'Have you ever wondered… what time actually is? Is it something humans invented… or something that was always there? In this warm father–child conversation, we begin a journey to understand time — not through clocks, but through patterns in the world around us. Days, birthdays, seasons… everything repeats. But why?'
-		}
-	];
-
 	$: filteredVideos = videos.filter(video => {
-		const matchesDifficulty = selectedDifficulty === 'All' || video.difficulty === selectedDifficulty;
-		const matchesSearch = video.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-			video.channel.toLowerCase().includes(searchQuery.toLowerCase());
+		const matchesDifficulty =
+			selectedDifficulty === 'All' || video.difficulty === selectedDifficulty;
+
+		const matchesSearch =
+			video.title?.toLowerCase().includes(searchQuery.toLowerCase());
+
 		return matchesDifficulty && matchesSearch;
 	});
 
-	function formatViews(views) {
-		return views;
+	function openVideo(video) {
+		activeVideo = video;
+		document.body.style.overflow = 'hidden';
+	}
+
+	function closeVideo() {
+		activeVideo = null;
+		document.body.style.overflow = 'auto';
 	}
 </script>
 
 <Navbar />
-<div class="min-h-screen bg-[#0a0a0f] text-white pt-24 pb-12">
+
+<div class="min-h-screen bg-[#0a0a0f] text-white pt-24 pb-16">
 	<div class="mx-auto max-w-7xl px-4">
-		<!-- Header -->
-		<div class="mb-12">
-			<h1 class="text-5xl font-bold text-amber-50 mb-4">Video Library</h1>
-			<p class="text-gray-400 text-lg max-w-2xl">Watch expertly crafted video tutorials covering mathematics, algorithms, and computer science concepts with visual explanations.</p>
-		</div>
 
-		<!-- Search Bar -->
-		<div class="mb-8">
-			<input
-				type="text"
-				placeholder="🔍 Search videos..."
-				bind:value={searchQuery}
-				class="w-full bg-[#1e1e2e] border border-gray-600 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-blue-400 transition"
-			/>
-		</div>
+		<h1 class="text-5xl font-bold mb-8">Video Library</h1>
 
-		<!-- Difficulty Filter -->
-		<div class="mb-8 flex flex-wrap gap-2">
-			{#each difficulties as difficulty}
+		<input
+			type="text"
+			placeholder="Search videos..."
+			bind:value={searchQuery}
+			class="w-full mb-6 p-4 bg-[#1e1e2e] border border-gray-700 rounded-xl"
+		/>
+
+		<div class="flex gap-3 mb-10 flex-wrap">
+			{#each difficulties as d}
 				<button
-					on:click={() => (selectedDifficulty = difficulty)}
-					class="px-4 py-2 rounded-lg font-mono text-sm transition-all duration-200 {selectedDifficulty === difficulty
-						? 'bg-blue-400 text-gray-900 border border-blue-400'
-						: 'bg-[#1e1e2e] text-gray-400 border border-gray-600 hover:border-blue-400/50'}"
+					on:click={() => selectedDifficulty = d}
+					class="px-4 py-2 rounded-full border
+					{selectedDifficulty === d 
+						? 'bg-blue-500 text-white border-blue-500' 
+						: 'bg-[#1e1e2e] text-gray-300 border-gray-600'}"
 				>
-					{difficulty}
+					{d}
 				</button>
 			{/each}
 		</div>
 
-		<!-- Videos Grid with Embeds -->
 		{#if filteredVideos.length > 0}
-			<div class="space-y-12">
-				{#each filteredVideos as video (video.id)}
-					<div class="group bg-[#1e1e2e] border border-gray-600 rounded-lg overflow-hidden hover:border-blue-400 transition-all duration-300 hover:shadow-lg hover:shadow-blue-400/10">
-						<div class="grid grid-cols-1 lg:grid-cols-3 gap-6 p-6">
-							<!-- YouTube Embed -->
-							<div class="lg:col-span-2">
-								<div class="relative w-full bg-black rounded-lg overflow-hidden" style="padding-bottom: 56.25%;">
-									<iframe
-										width="100%"
-										height="100%"
-										src="https://www.youtube.com/embed/{video.youtubeId}"
-										title={video.title}
-										allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-										allowfullscreen
-										class="absolute top-0 left-0"
-									></iframe>
-								</div>
+			<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+				{#each filteredVideos as video}
+					<div
+						on:click={() => openVideo(video)}
+						class="cursor-pointer border border-blue-500/40 rounded-xl p-4 bg-[#14141f] hover:border-blue-500 transition"
+					>
+						<div class="flex flex-col lg:flex-row gap-4">
+
+							<div class="flex-1">
+								<iframe
+									class="w-full h-[220px] lg:h-[200px] rounded-lg pointer-events-none"
+									src={`https://www.youtube.com/embed/${video.youtubeId}`}
+								></iframe>
 							</div>
 
-							<!-- Video Info -->
-							<div class="flex flex-col justify-between space-y-4">
+							<div class="flex-1 flex flex-col justify-between">
+
 								<div>
-									<div class="flex items-center justify-between mb-3">
-										<span class="text-xs font-mono text-blue-400 bg-blue-400/10 px-2 py-1 rounded border border-blue-400/30">
+									<div class="flex justify-between items-center mb-2">
+										<span class="text-xs px-2 py-1 border border-blue-400 rounded text-blue-400">
 											{video.difficulty}
 										</span>
-										<span class="text-xs text-gray-500">{video.duration}</span>
+
+										<span class="text-xs text-gray-400">
+											{video.duration}
+										</span>
 									</div>
 
-									<h3 class="text-xl font-bold text-amber-50 mb-2 group-hover:text-blue-300 transition">
+									<h3 class="text-lg font-semibold text-blue-300 mb-2">
 										{video.title}
 									</h3>
 
-									<p class="text-sm text-gray-400 mb-4">
-										by <span class="text-blue-400">{video.channel}</span>
-									</p>
-
-									<p class="text-sm text-gray-400 leading-relaxed mb-4">
+									<p class="text-sm text-gray-400 leading-relaxed line-clamp-4">
 										{video.description}
 									</p>
 								</div>
 
-								<!-- Video Stats -->
-								<div class="border-t border-gray-600 pt-4 space-y-2">
-									<div class="flex justify-between text-sm text-gray-500">
-										<span>📅 Published</span>
-										<span class="text-amber-50">{video.date}</span>
-									</div>
+								<div class="mt-4 border-t border-gray-700 pt-3 flex justify-between text-xs text-gray-500">
+									<span>Published</span>
+									<span>{video.date}</span>
 								</div>
+
 							</div>
+
 						</div>
 					</div>
 				{/each}
+
 			</div>
 		{:else}
-			<div class="text-center py-12">
-				<p class="text-gray-400 text-lg">No videos found. Try adjusting your search.</p>
-			</div>
+			<p class="text-gray-400">No videos found</p>
 		{/if}
+
 	</div>
 </div>
+
+<!-- 🔥 MODAL -->
+{#if activeVideo}
+	<div
+		class="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 p-6"
+		on:click={closeVideo}
+	>
+		<div
+			class="bg-[#14141f] border border-blue-500 rounded-xl max-w-5xl w-full p-6 relative"
+			on:click|stopPropagation
+		>
+
+			<!-- HEADER -->
+			<div class="flex justify-between items-center mb-4">
+				<span class="text-xs px-2 py-1 border border-blue-400 rounded text-blue-400">
+					{activeVideo.difficulty}
+				</span>
+
+				<button
+					on:click={closeVideo}
+					class="text-gray-400 hover:text-white text-xl"
+				>
+					✕
+				</button>
+			</div>
+
+			<div class="flex flex-col lg:flex-row gap-6">
+
+				<!-- VIDEO -->
+				<div class="flex-1">
+					<iframe
+						class="w-full h-[300px] lg:h-[350px] rounded-lg"
+						src={`https://www.youtube.com/embed/${activeVideo.youtubeId}?autoplay=1`}
+						allowfullscreen
+					></iframe>
+				</div>
+
+				<!-- DETAILS -->
+				<div class="flex-1 flex flex-col gap-4">
+
+					<!-- TITLE + DURATION -->
+					<div class="flex justify-between items-center">
+						<h2 class="text-2xl font-semibold text-blue-300">
+							{activeVideo.title}
+						</h2>
+
+						<span class="text-sm text-gray-400">
+							{activeVideo.duration}
+						</span>
+					</div>
+
+					<!-- FULL DESCRIPTION -->
+					<p class="text-gray-400 leading-relaxed">
+						{activeVideo.description}
+					</p>
+
+					<!-- FOOTER -->
+					<div class="mt-4 border-t border-gray-700 pt-3 flex justify-between text-sm text-gray-500">
+						<span>Published</span>
+						<span>{activeVideo.date}</span>
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+{/if}
 
 <Footer />
 
 <style>
 	:global(body) {
 		background-color: #0a0a0f;
+	}
+
+	.line-clamp-4 {
+		display: -webkit-box;
+		-webkit-line-clamp: 4;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
 	}
 </style>

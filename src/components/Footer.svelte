@@ -1,75 +1,100 @@
-<div class="font-mono text-gray-400 pt-3 mt-2 pb-2 md:pb-4">
-	<hr class="border-gray-600" />
-	<div class="flex flex-row justify-start md:justify-between items-start gap-3 md:gap-6 ml-3 md:ml-8 mr-3 md:mr-8 mt-3 md:mt-6 overflow-x-auto pb-2">
+<div class="font-mono text-gray-400 pt-10 pb-6 border-t border-gray-700">
+
+	<div class="max-w-7xl mx-auto px-6">
+
 		<!-- Branding -->
-		<div class="shrink-0">
-			<h1 class="text-blue-400 font-extrabold text-xs md:text-base whitespace-nowrap">Math.CS</h1>
-			<p class="max-w-xs wrap-break-word text-xs md:text-sm mt-1 hidden md:block">
-				Simplifying complex concepts in mathematics, computer science, and technology.
-			</p>
+		<div class="text-center md:text-left mb-8 md:mb-0 md:grid md:grid-cols-4 md:gap-8">
+
+			<!-- LEFT (Branding stays separate on desktop) -->
+			<div class="md:col-span-1">
+				<h1 class="text-blue-400 font-extrabold text-lg mb-2">Math.CS</h1>
+				<p class="text-sm leading-relaxed max-w-md mx-auto md:mx-0">
+					Simplifying complex concepts in mathematics, computer science, and technology.
+				</p>
+			</div>
+
+			<!-- RIGHT (Links area) -->
+			<div class="mt-8 md:mt-0 col-span-3">
+
+				<!-- MOBILE: single row -->
+				<div class="flex justify-center md:hidden gap-8 text-center">
+
+					<!-- Links -->
+					<div>
+						<h2 class="text-blue-400 font-bold mb-2 text-sm">Links</h2>
+						<ul class="space-y-1 text-xs">
+							<li><a href="/blog" class="hover:text-white transition">Blog</a></li>
+							<li><a href="/videos" class="hover:text-white transition">Videos</a></li>
+							<li><a href="/puzzles" class="hover:text-white transition">Puzzles</a></li>
+						</ul>
+					</div>
+
+					<!-- Topics -->
+					<div>
+						<h2 class="text-blue-400 font-bold mb-2 text-sm">Topics</h2>
+						<ul class="space-y-1 text-xs">
+							<li class="hover:text-white cursor-pointer">Math</li>
+							<li class="hover:text-white cursor-pointer">Science</li>
+							<li class="hover:text-white cursor-pointer">Tech</li>
+						</ul>
+					</div>
+
+					<!-- Social -->
+					<div>
+						<h2 class="text-blue-400 font-bold mb-2 text-sm">Social</h2>
+						<ul class="space-y-1 text-xs">
+							<li><a href="https://instagram.com" target="_blank" class="hover:text-white">Instagram</a></li>
+							<li><a href="https://youtube.com" target="_blank" class="hover:text-white">YouTube</a></li>
+							<li><a href="https://x.com" target="_blank" class="hover:text-white">X</a></li>
+						</ul>
+					</div>
+
+				</div>
+
+				<!-- DESKTOP: grid layout -->
+				<div class="hidden md:grid grid-cols-3 gap-8 text-left">
+
+					<!-- Links -->
+					<div>
+						<h2 class="text-blue-400 font-bold mb-2">Links</h2>
+						<ul class="space-y-1 text-sm">
+							<li><a href="/blog" class="hover:text-white transition">Blog</a></li>
+							<li><a href="/videos" class="hover:text-white transition">Videos</a></li>
+							<li><a href="/puzzles" class="hover:text-white transition">Puzzles</a></li>
+						</ul>
+					</div>
+
+					<!-- Topics -->
+					<div>
+						<h2 class="text-blue-400 font-bold mb-2">Topics</h2>
+						<ul class="space-y-1 text-sm">
+							<li class="hover:text-white cursor-pointer">Math</li>
+							<li class="hover:text-white cursor-pointer">Science</li>
+							<li class="hover:text-white cursor-pointer">Tech</li>
+						</ul>
+					</div>
+
+					<!-- Social -->
+					<div>
+						<h2 class="text-blue-400 font-bold mb-2">Social</h2>
+						<ul class="space-y-1 text-sm">
+							<li><a href="https://www.instagram.com/_math.cs_/" target="_blank" class="hover:text-white transition">Instagram</a></li>
+							<li><a href="https://www.youtube.com/@_math.cs_" target="_blank" class="hover:text-white transition">YouTube</a></li>
+							<li><a href="https://x.com/MathDotCS" target="_blank" class="hover:text-white transition">X</a></li>
+						</ul>
+					</div>
+
+				</div>
+
+			</div>
+
 		</div>
 
-		<!-- Quick Links -->
-		<div class="shrink-0">
-			<h1 class="text-blue-400 font-extrabold text-xs md:text-base whitespace-nowrap">Links</h1>
-			<ul class="space-y-0.5 text-xs md:text-sm mt-1">
-				<li>
-					<a href="/blog" class="hover:text-amber-50 transition">Blog</a>
-				</li>
-				<li>
-					<a href="/videos" class="hover:text-amber-50 transition">Videos</a>
-				</li>
-				<li>
-					<a href="/puzzles" class="hover:text-amber-50 transition">Puzzles</a>
-				</li>
-			</ul>
+		<!-- Bottom -->
+		<div class="mt-8 border-t border-gray-700 pt-4 text-center text-xs text-gray-500">
+			© 2026 Math.CS • Built with ❤️ for passionate learners
 		</div>
 
-		<!-- Topics -->
-		<div class="shrink-0">
-			<h1 class="text-blue-400 font-extrabold text-xs md:text-base whitespace-nowrap">Topics</h1>
-			<ul class="space-y-0.5 text-xs md:text-sm mt-1">
-				<li class="hover:text-amber-50 transition cursor-pointer">Math</li>
-				<li class="hover:text-amber-50 transition cursor-pointer">Science</li>
-				<li class="hover:text-amber-50 transition cursor-pointer">Tech</li>
-			</ul>
-		</div>
-
-		<!-- Community -->
-		<div class="shrink-0">
-			<h1 class="text-blue-400 font-extrabold text-xs md:text-base whitespace-nowrap">Social</h1>
-			<ul class="space-y-0.5 text-xs md:text-sm mt-1">
-				<li class="hover:text-amber-50 transition cursor-pointer">GitHub</li>
-				<li class="hover:text-amber-50 transition cursor-pointer">Discord</li>
-				<li class="hover:text-amber-50 transition cursor-pointer">Twitter</li>
-			</ul>
-		</div>
 	</div>
 
-	<hr class="border-gray-600 my-2 mx-3 md:mx-8 mt-3 md:mt-4" />
-	<p class="text-center text-xs px-3">© 2026 Math.CS • Built with ❤️</p>
 </div>
-
-<style>
-	:global(.overflow-x-auto) {
-		scrollbar-width: thin;
-		scrollbar-color: rgba(59, 130, 246, 0.3) transparent;
-	}
-
-	:global(.overflow-x-auto::-webkit-scrollbar) {
-		height: 4px;
-	}
-
-	:global(.overflow-x-auto::-webkit-scrollbar-track) {
-		background: transparent;
-	}
-
-	:global(.overflow-x-auto::-webkit-scrollbar-thumb) {
-		background-color: rgba(59, 130, 246, 0.3);
-		border-radius: 2px;
-	}
-
-	:global(.overflow-x-auto::-webkit-scrollbar-thumb:hover) {
-		background-color: rgba(59, 130, 246, 0.6);
-	}
-</style>

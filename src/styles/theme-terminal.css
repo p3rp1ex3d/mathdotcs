@@ -1,0 +1,81 @@
+/* Terminal Dark Theme - The original dark aesthetic */
+
+body[data-theme="terminal"] {
+	background-color: #0a0a0f;
+	color: #e5e5ea;
+	font-family: 'Monaco', 'Menlo', 'Courier New', monospace;
+}
+
+body[data-theme="terminal"] .terminal-container {
+	border: 1px solid #374151;
+	background-color: #1e1e2e;
+	border-radius: 0.5rem;
+}
+
+/* Headers */
+body[data-theme="terminal"] h1,
+body[data-theme="terminal"] h2 {
+	color: #fef3c7;
+}
+
+body[data-theme="terminal"] h3,
+body[data-theme="terminal"] h4 {
+	color: #93c5fd;
+}
+
+/* Buttons */
+body[data-theme="terminal"] .btn-primary {
+	background-color: #3b82f6;
+	color: white;
+	border: 1px solid #1e40af;
+}
+
+body[data-theme="terminal"] .btn-primary:hover {
+	background-color: #2563eb;
+	border-color: #1e3a8a;
+}
+
+/* Links and accents */
+body[data-theme="terminal"] a {
+	color: #60a5fa;
+}
+
+body[data-theme="terminal"] a:hover {
+	color: #93c5fd;
+}
+
+body[data-theme="terminal"] .accent {
+	color: #60a5fa;
+}
+
+body[data-theme="terminal"] .card {
+	background-color: #1e1e2e;
+	border: 1px solid #374151;
+}
+
+body[data-theme="terminal"] .card:hover {
+	border-color: #60a5fa;
+	box-shadow: 0 0 20px rgba(96, 165, 250, 0.1);
+}
+
+/* Code blocks */
+body[data-theme="terminal"] pre {
+	background-color: #374151;
+	color: #60a5fa;
+}
+
+body[data-theme="terminal"] code {
+	color: #60a5fa;
+	background-color: rgba(96, 165, 250, 0.1);
+}
+
+/* Navbar and footer */
+body[data-theme="terminal"] .navbar {
+	background-color: #0f0f1a;
+	border-bottom: 1px solid #374151;
+}
+
+body[data-theme="terminal"] .footer {
+	background-color: #0f0f1a;
+	border-top: 1px solid #374151;
+}

@@ -251,7 +251,7 @@
 <div class="bg-[#0a0a0f] text-white pt-20 pb-12">
 	<TerminalDocument title={post.title}>
 		<article>
-		<header class="mb-12 space-y-6 border-b border-gray-600 pb-8">
+			<header class="mb-0 space-y-6 border-b border-gray-600 pb-8">
 			<div class="space-y-3">
 				<div class="flex items-center gap-3 flex-wrap">
 					<span class="bg-blue-400/10 text-blue-400 px-1 py-1 rounded text-sm font-mono border border-blue-400/30">

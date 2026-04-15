@@ -130,11 +130,6 @@
 				<div class="w-3 h-3 bg-green-500 rounded-full animate-pulse" style="animation-delay: 0.2s;"></div>
 				<span class="text-gray-400 ml-3 text-sm font-mono">~/puzzles.md</span>
 			</div>
-			<div class="flex items-center space-x-3 text-gray-400 text-sm">
-				<span>―</span>
-				<span>☐</span>
-				<span>X</span>
-			</div>
 		</div>
 
 		<!-- Content -->

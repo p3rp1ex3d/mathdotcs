@@ -17,11 +17,6 @@
 			<h1 class="text-gray-300 ml-3 text-xs md:text-sm">~/welcome.md</h1>
 		</div>
 
-		<div class="flex items-center space-x-4 text-gray-400 text-lg">
-			<span>―</span>
-			<span>☐</span>
-			<span>X</span>
-		</div>
 	</div>
 
 	<div class="bg-linear-to-br from-[#14141f] to-[#0a0a0f] font-mono flex flex-col md:flex-row space-x-0 md:space-x-1.5 items-start md:items-center rounded-b-sm border border-gray-600 border-t-0 p-4 md:p-0 relative overflow-hidden">

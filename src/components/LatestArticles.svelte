@@ -41,12 +41,6 @@
 			<div class="w-3.5 h-3.5 bg-green-500 rounded-full"></div>
 			<h1 class="text-gray-300 ml-3 text-xs md:text-sm">~/featured-blogs</h1>
 		</div>
-
-		<div class="flex items-center space-x-4 text-gray-400 text-lg">
-			<span>―</span>
-			<span>☐</span>
-			<span>X</span>
-		</div>
 	</div>
 
 	<div class="bg-[#14141f] font-mono mx-4 lg:mx-10 rounded-b-sm border border-gray-600 pb-8">
